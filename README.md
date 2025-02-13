@@ -5,8 +5,8 @@
 
 ### To Run the project (using Requirements.txt):
 
-cd gator-aide
-brew install python
-python3 -m venv venv      
-source venv/bin/activate
-pip install -r requirements.txt
+cd gator-aide <br />
+brew install python <br />
+python3 -m venv venv <br />      
+source venv/bin/activate <br />
+pip install -r requirements.txt <br />
