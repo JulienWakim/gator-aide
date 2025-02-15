@@ -1,4 +1,5 @@
 const API_URL = "https://gator-aide.onrender.com"; // Your Flask API URL
+// const API_URL = "http://127.0.0.1:5000"; // Local Flask API URL
 
 document.getElementById("user-input").addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
@@ -13,17 +14,22 @@ function sendMessage() {
     appendMessage("user", userInput);
     document.getElementById("user-input").value = "";
 
-    // Test fetching from backend
-    fetch(`${API_URL}/`)  // Fetch from existing home route
-        .then(response => response.text()) // Convert response to text
-        .then(data => {
-            console.log("API Response:", data); // Log response to console
-            appendMessage("bot", data); // Append to chat
-        })
-        .catch(error => {
-            console.error("Error fetching from API:", error);
-            appendMessage("bot", "Failed to connect to backend.");
-        });
+    fetch(`${API_URL}/chat`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: userInput })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("API Response:", data);
+        appendMessage("bot", data.response || "Error processing your request.");
+    })
+    .catch(error => {
+        console.error("Error fetching from API:", error);
+        appendMessage("bot", "Failed to connect to backend.");
+    });
 }
 
 function appendMessage(sender, message) {
