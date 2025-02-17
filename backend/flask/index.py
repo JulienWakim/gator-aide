@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Set up Gemini API
-GEMINI_API_KEY = "TEST"  # Replace with your API key
+GEMINI_API_KEY = "AIzaSyDcUA1UaoAOFXBq_U2aq_2y-yjMSRwVYik"  # Replace with your API key
 genai.configure(api_key=GEMINI_API_KEY)
 
 @app.route("/")
