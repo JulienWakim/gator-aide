@@ -11,6 +11,7 @@ CORS(app)
 
 # API key
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+print(os.getenv("GEMINI_API_KEY"))
 genai.configure(api_key=GEMINI_API_KEY)
 
 @app.route("/")

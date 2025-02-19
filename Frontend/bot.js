@@ -1,4 +1,4 @@
-const API_URL = "https://gator-aide.onrender.com"; // Your Flask API URL
+const API_URL = "https://gator-aide-testing.onrender.com"; // Your Flask API URL
 // const API_URL = "http://127.0.0.1:5000"; // Local Flask API URL
 
 document.getElementById("user-input").addEventListener("keypress", function(event) {
